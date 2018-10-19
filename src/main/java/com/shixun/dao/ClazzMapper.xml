@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shixun.dao.ClazzMapper">
+  <resultMap id="BaseResultMap" type="com.shixun.entity.Clazz">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="is_exist" jdbcType="INTEGER" property="isExist" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="student_count" jdbcType="INTEGER" property="studentCount" />
+    <result column="has_stugroup" jdbcType="INTEGER" property="hasStugroup" />
+    <result column="technology_direction" jdbcType="VARCHAR" property="technologyDirection" />
+    <result column="reserved_one" jdbcType="VARCHAR" property="reservedOne" />
+    <result column="reserved_two" jdbcType="VARCHAR" property="reservedTwo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, name, create_time, sort, remarks, is_exist, start_time, end_time, student_count, 
+    has_stugroup, technology_direction, reserved_one, reserved_two
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from clazz
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from clazz
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shixun.entity.Clazz">
+    insert into clazz (ID, name, create_time, 
+      sort, remarks, is_exist, 
+      start_time, end_time, student_count, 
+      has_stugroup, technology_direction, reserved_one, 
+      reserved_two)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{sort,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{isExist,jdbcType=INTEGER}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{studentCount,jdbcType=INTEGER}, 
+      #{hasStugroup,jdbcType=INTEGER}, #{technologyDirection,jdbcType=VARCHAR}, #{reservedOne,jdbcType=VARCHAR}, 
+      #{reservedTwo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shixun.entity.Clazz">
+    insert into clazz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="isExist != null">
+        is_exist,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="studentCount != null">
+        student_count,
+      </if>
+      <if test="hasStugroup != null">
+        has_stugroup,
+      </if>
+      <if test="technologyDirection != null">
+        technology_direction,
+      </if>
+      <if test="reservedOne != null">
+        reserved_one,
+      </if>
+      <if test="reservedTwo != null">
+        reserved_two,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isExist != null">
+        #{isExist,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentCount != null">
+        #{studentCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasStugroup != null">
+        #{hasStugroup,jdbcType=INTEGER},
+      </if>
+      <if test="technologyDirection != null">
+        #{technologyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedOne != null">
+        #{reservedOne,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedTwo != null">
+        #{reservedTwo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shixun.entity.Clazz">
+    update clazz
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isExist != null">
+        is_exist = #{isExist,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentCount != null">
+        student_count = #{studentCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasStugroup != null">
+        has_stugroup = #{hasStugroup,jdbcType=INTEGER},
+      </if>
+      <if test="technologyDirection != null">
+        technology_direction = #{technologyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedOne != null">
+        reserved_one = #{reservedOne,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedTwo != null">
+        reserved_two = #{reservedTwo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shixun.entity.Clazz">
+    update clazz
+    set name = #{name,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sort = #{sort,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      is_exist = #{isExist,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      student_count = #{studentCount,jdbcType=INTEGER},
+      has_stugroup = #{hasStugroup,jdbcType=INTEGER},
+      technology_direction = #{technologyDirection,jdbcType=VARCHAR},
+      reserved_one = #{reservedOne,jdbcType=VARCHAR},
+      reserved_two = #{reservedTwo,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shixun.entity.Clazz">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="is_exist" jdbcType="INTEGER" property="isExist" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="student_count" jdbcType="INTEGER" property="studentCount" />
+    <result column="has_stugroup" jdbcType="INTEGER" property="hasStugroup" />
+    <result column="technology_direction" jdbcType="VARCHAR" property="technologyDirection" />
+    <result column="reserved_one" jdbcType="VARCHAR" property="reservedOne" />
+    <result column="reserved_two" jdbcType="VARCHAR" property="reservedTwo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, name, create_time, sort, remarks, is_exist, start_time, end_time, student_count, 
+    has_stugroup, technology_direction, reserved_one, reserved_two
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from clazz
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from clazz
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shixun.entity.Clazz">
+    insert into clazz (ID, name, create_time, 
+      sort, remarks, is_exist, 
+      start_time, end_time, student_count, 
+      has_stugroup, technology_direction, reserved_one, 
+      reserved_two)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{sort,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{isExist,jdbcType=INTEGER}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{studentCount,jdbcType=INTEGER}, 
+      #{hasStugroup,jdbcType=INTEGER}, #{technologyDirection,jdbcType=VARCHAR}, #{reservedOne,jdbcType=VARCHAR}, 
+      #{reservedTwo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shixun.entity.Clazz">
+    insert into clazz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="isExist != null">
+        is_exist,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="studentCount != null">
+        student_count,
+      </if>
+      <if test="hasStugroup != null">
+        has_stugroup,
+      </if>
+      <if test="technologyDirection != null">
+        technology_direction,
+      </if>
+      <if test="reservedOne != null">
+        reserved_one,
+      </if>
+      <if test="reservedTwo != null">
+        reserved_two,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isExist != null">
+        #{isExist,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentCount != null">
+        #{studentCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasStugroup != null">
+        #{hasStugroup,jdbcType=INTEGER},
+      </if>
+      <if test="technologyDirection != null">
+        #{technologyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedOne != null">
+        #{reservedOne,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedTwo != null">
+        #{reservedTwo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shixun.entity.Clazz">
+    update clazz
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isExist != null">
+        is_exist = #{isExist,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentCount != null">
+        student_count = #{studentCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasStugroup != null">
+        has_stugroup = #{hasStugroup,jdbcType=INTEGER},
+      </if>
+      <if test="technologyDirection != null">
+        technology_direction = #{technologyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedOne != null">
+        reserved_one = #{reservedOne,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedTwo != null">
+        reserved_two = #{reservedTwo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shixun.entity.Clazz">
+    update clazz
+    set name = #{name,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sort = #{sort,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      is_exist = #{isExist,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      student_count = #{studentCount,jdbcType=INTEGER},
+      has_stugroup = #{hasStugroup,jdbcType=INTEGER},
+      technology_direction = #{technologyDirection,jdbcType=VARCHAR},
+      reserved_one = #{reservedOne,jdbcType=VARCHAR},
+      reserved_two = #{reservedTwo,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shixun.entity.Clazz">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="is_exist" jdbcType="INTEGER" property="isExist" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="student_count" jdbcType="INTEGER" property="studentCount" />
+    <result column="has_stugroup" jdbcType="INTEGER" property="hasStugroup" />
+    <result column="technology_direction" jdbcType="VARCHAR" property="technologyDirection" />
+    <result column="reserved_one" jdbcType="VARCHAR" property="reservedOne" />
+    <result column="reserved_two" jdbcType="VARCHAR" property="reservedTwo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, name, create_time, sort, remarks, is_exist, start_time, end_time, student_count, 
+    has_stugroup, technology_direction, reserved_one, reserved_two
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from clazz
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from clazz
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shixun.entity.Clazz">
+    insert into clazz (ID, name, create_time, 
+      sort, remarks, is_exist, 
+      start_time, end_time, student_count, 
+      has_stugroup, technology_direction, reserved_one, 
+      reserved_two)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{sort,jdbcType=INTEGER}, #{remarks,jdbcType=VARCHAR}, #{isExist,jdbcType=INTEGER}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{studentCount,jdbcType=INTEGER}, 
+      #{hasStugroup,jdbcType=INTEGER}, #{technologyDirection,jdbcType=VARCHAR}, #{reservedOne,jdbcType=VARCHAR}, 
+      #{reservedTwo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shixun.entity.Clazz">
+    insert into clazz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="isExist != null">
+        is_exist,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="studentCount != null">
+        student_count,
+      </if>
+      <if test="hasStugroup != null">
+        has_stugroup,
+      </if>
+      <if test="technologyDirection != null">
+        technology_direction,
+      </if>
+      <if test="reservedOne != null">
+        reserved_one,
+      </if>
+      <if test="reservedTwo != null">
+        reserved_two,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isExist != null">
+        #{isExist,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentCount != null">
+        #{studentCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasStugroup != null">
+        #{hasStugroup,jdbcType=INTEGER},
+      </if>
+      <if test="technologyDirection != null">
+        #{technologyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedOne != null">
+        #{reservedOne,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedTwo != null">
+        #{reservedTwo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shixun.entity.Clazz">
+    update clazz
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="isExist != null">
+        is_exist = #{isExist,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentCount != null">
+        student_count = #{studentCount,jdbcType=INTEGER},
+      </if>
+      <if test="hasStugroup != null">
+        has_stugroup = #{hasStugroup,jdbcType=INTEGER},
+      </if>
+      <if test="technologyDirection != null">
+        technology_direction = #{technologyDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedOne != null">
+        reserved_one = #{reservedOne,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedTwo != null">
+        reserved_two = #{reservedTwo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shixun.entity.Clazz">
+    update clazz
+    set name = #{name,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sort = #{sort,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      is_exist = #{isExist,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      student_count = #{studentCount,jdbcType=INTEGER},
+      has_stugroup = #{hasStugroup,jdbcType=INTEGER},
+      technology_direction = #{technologyDirection,jdbcType=VARCHAR},
+      reserved_one = #{reservedOne,jdbcType=VARCHAR},
+      reserved_two = #{reservedTwo,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

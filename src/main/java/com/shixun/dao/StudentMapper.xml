@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shixun.dao.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.shixun.entity.Student">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="stu_num" jdbcType="VARCHAR" property="stuNum" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="daxue" jdbcType="VARCHAR" property="daxue" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="clazz_id" jdbcType="VARCHAR" property="clazzId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, name, stu_num, sex, daxue, phone, clazz_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from student
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shixun.entity.Student">
+    insert into student (ID, name, stu_num, 
+      sex, daxue, phone, 
+      clazz_id)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{stuNum,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{daxue,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{clazzId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shixun.entity.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="stuNum != null">
+        stu_num,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="daxue != null">
+        daxue,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="clazzId != null">
+        clazz_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNum != null">
+        #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="daxue != null">
+        #{daxue,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="clazzId != null">
+        #{clazzId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shixun.entity.Student">
+    update student
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNum != null">
+        stu_num = #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="daxue != null">
+        daxue = #{daxue,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="clazzId != null">
+        clazz_id = #{clazzId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shixun.entity.Student">
+    update student
+    set name = #{name,jdbcType=VARCHAR},
+      stu_num = #{stuNum,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      daxue = #{daxue,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      clazz_id = #{clazzId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shixun.entity.Student">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="stu_num" jdbcType="VARCHAR" property="stuNum" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="daxue" jdbcType="VARCHAR" property="daxue" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="clazz_id" jdbcType="VARCHAR" property="clazzId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, name, stu_num, sex, daxue, phone, clazz_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from student
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shixun.entity.Student">
+    insert into student (ID, name, stu_num, 
+      sex, daxue, phone, 
+      clazz_id)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{stuNum,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{daxue,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{clazzId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shixun.entity.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="stuNum != null">
+        stu_num,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="daxue != null">
+        daxue,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="clazzId != null">
+        clazz_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNum != null">
+        #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="daxue != null">
+        #{daxue,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="clazzId != null">
+        #{clazzId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shixun.entity.Student">
+    update student
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNum != null">
+        stu_num = #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="daxue != null">
+        daxue = #{daxue,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="clazzId != null">
+        clazz_id = #{clazzId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shixun.entity.Student">
+    update student
+    set name = #{name,jdbcType=VARCHAR},
+      stu_num = #{stuNum,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      daxue = #{daxue,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      clazz_id = #{clazzId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shixun.entity.Student">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="stu_num" jdbcType="VARCHAR" property="stuNum" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="daxue" jdbcType="VARCHAR" property="daxue" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="clazz_id" jdbcType="VARCHAR" property="clazzId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, name, stu_num, sex, daxue, phone, clazz_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from student
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shixun.entity.Student">
+    insert into student (ID, name, stu_num, 
+      sex, daxue, phone, 
+      clazz_id)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{stuNum,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{daxue,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{clazzId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shixun.entity.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="stuNum != null">
+        stu_num,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="daxue != null">
+        daxue,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="clazzId != null">
+        clazz_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNum != null">
+        #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="daxue != null">
+        #{daxue,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="clazzId != null">
+        #{clazzId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shixun.entity.Student">
+    update student
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="stuNum != null">
+        stu_num = #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="daxue != null">
+        daxue = #{daxue,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="clazzId != null">
+        clazz_id = #{clazzId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shixun.entity.Student">
+    update student
+    set name = #{name,jdbcType=VARCHAR},
+      stu_num = #{stuNum,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      daxue = #{daxue,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      clazz_id = #{clazzId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
