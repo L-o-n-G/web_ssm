@@ -1,7 +1,9 @@
 package com.shixun.dao;
 
 import com.shixun.entity.Student;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface StudentMapper {
     int deleteByPrimaryKey(String id);
 

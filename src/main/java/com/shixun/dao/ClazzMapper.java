@@ -1,7 +1,9 @@
 package com.shixun.dao;
 
 import com.shixun.entity.Clazz;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ClazzMapper {
     int deleteByPrimaryKey(String id);
 

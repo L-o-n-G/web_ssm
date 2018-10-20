@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/skins/_all-skins.min.css">
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-yellow  sidebar-mini">
 <div class="wrapper">
 
   <jsp:include page="${pageContext.request.contextPath}/page/common/header.jsp"/>
